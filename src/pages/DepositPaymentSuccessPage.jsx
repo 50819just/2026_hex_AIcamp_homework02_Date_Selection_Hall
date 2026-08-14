@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { navigateTo, useSearchParam } from '../hooks/useRouter'
 import { queryDepositOrder } from '../lib/api'
 import { getServiceById } from '../data/services'
+import MaskedHeading from '../components/ui/MaskedHeading'
 
 function formatCurrency(value) {
   return Number.isFinite(Number(value)) ? `NT$${Number(value).toLocaleString('zh-Hant-TW')}` : '尚未確認'
@@ -35,7 +36,10 @@ function DepositPaymentSuccessPage() {
 
   return (
     <div className="flex items-center justify-center py-16 md:py-[120px] px-6 md:px-10 lg:px-[80px] w-full max-w-[1440px] mx-auto">
-      <article className="w-full max-w-4xl bg-surface-container-lowest border border-tea-brown/20 relative">
+      <article
+        className="w-full max-w-4xl bg-surface-container-lowest border border-tea-brown/20 relative"
+        data-aos="fade-up"
+      >
         <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-ink/30" />
         <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-ink/30" />
         <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-ink/30" />
@@ -46,15 +50,23 @@ function DepositPaymentSuccessPage() {
             <p className="text-style-body-md text-tea-brown py-16">正在向綠界重新確認這筆預約訂金，請稍候。</p>
           ) : isPaid ? (
             <>
-              <div className="w-20 h-20 md:w-24 md:h-24 border-[3px] border-vermilion rounded-[2px] flex items-center justify-center mb-8 md:mb-12 relative">
+              <div
+                className="w-20 h-20 md:w-24 md:h-24 border-[3px] border-vermilion rounded-[2px] flex items-center justify-center mb-8 md:mb-12 relative"
+                data-aos="zoom-in"
+              >
                 <div className="absolute inset-1 border border-vermilion/50 rounded-[2px]" />
                 <span className="material-symbols-outlined text-vermilion text-[40px] md:text-[56px]">done</span>
               </div>
 
-              <h1 className="text-style-headline-lg text-ink text-center mb-16 tracking-wide">預約訂金付款成功</h1>
+              <MaskedHeading className="text-style-headline-lg text-ink text-center mb-16 tracking-wide" delay={0.2}>
+                預約訂金付款成功
+              </MaskedHeading>
 
               <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-                <div className="col-span-1 md:col-span-2 bg-surface-container-low border border-tea-brown/10 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div
+                  className="col-span-1 md:col-span-2 bg-surface-container-low border border-tea-brown/10 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+                  data-aos="fade-up"
+                >
                   <div>
                     <span className="text-style-label-sm text-tea-brown block mb-1">服務名稱</span>
                     <span className="text-style-title-lg text-ink">{serviceName || '—'}</span>
@@ -65,12 +77,20 @@ function DepositPaymentSuccessPage() {
                   </div>
                 </div>
 
-                <div className="col-span-1 bg-surface-bright border border-vermilion/30 p-6 md:p-8 relative">
+                <div
+                  className="col-span-1 bg-surface-bright border border-vermilion/30 p-6 md:p-8 relative"
+                  data-aos="fade-up"
+                  data-aos-delay="80"
+                >
                   <span className="text-style-label-sm text-tea-brown block mb-2">已付訂金</span>
                   <span className="text-style-headline-md text-vermilion">{formatCurrency(record.depositAmount)}</span>
                 </div>
 
-                <div className="col-span-1 bg-surface-container-highest border border-tea-brown/10 p-6 md:p-8">
+                <div
+                  className="col-span-1 bg-surface-container-highest border border-tea-brown/10 p-6 md:p-8"
+                  data-aos="fade-up"
+                  data-aos-delay="160"
+                >
                   <span className="text-style-label-sm text-tea-brown block mb-2">尾款金額</span>
                   <span className="text-style-headline-md text-ink">{formatCurrency(record.balanceAmount)}</span>
                   <div className="mt-4 pt-4 border-t border-ink/10">

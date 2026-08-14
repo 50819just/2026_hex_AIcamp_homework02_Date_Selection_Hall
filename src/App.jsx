@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import AOS from 'aos'
 import { useRouter, navigateTo } from './hooks/useRouter'
 import PageShell from './components/layout/PageShell'
 import HomePage from './pages/HomePage'
@@ -65,6 +67,19 @@ function resolvePage(pathname) {
 
 function App() {
   const { pathname } = useRouter()
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-out',
+      once: true,
+      offset: 60,
+    })
+  }, [])
+
+  useEffect(() => {
+    AOS.refreshHard()
+  }, [pathname])
 
   return <PageShell>{resolvePage(pathname)}</PageShell>
 }

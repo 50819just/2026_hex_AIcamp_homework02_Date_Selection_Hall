@@ -1,6 +1,7 @@
 import { navigateTo } from '../hooks/useRouter'
 import { services } from '../data/services'
 import { contact } from '../data/siteContent'
+import MaskedHeading from '../components/ui/MaskedHeading'
 
 const DECORATIVE_IMAGE =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuCbZjDrTna0SpwT7IpYJF4WAjWGmIWxRnVW-jSu4ABLArjjL5dnx-zi-c4e36YV-nD-lluVP742R2AzQrh-tLONnKBa6H7X79om9fTkwPBSW_7zznlgZspwgyBjX__mEZ3sqy-f--96YX_hXROhi4cH71ocxUOzfnIwg9TGbLvw1WxoHM3YARG9MOJOVP06NjZezebpx-f6Q4gLCktfC7A1XUi_HIUjP_MS7PghrNW5T_QyBHFPB-ltdA'
@@ -17,8 +18,8 @@ function PricingPage() {
   return (
     <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-[80px] pb-16 md:pb-[120px]">
       <section className="mb-16 md:mb-[120px] pt-8 md:pt-16 text-center">
-        <h1 className="text-style-headline-lg text-ink mb-6">價格說明</h1>
-        <p className="text-style-body-lg text-tea-brown max-w-2xl mx-auto">
+        <MaskedHeading className="text-style-headline-lg text-ink mb-6">價格說明</MaskedHeading>
+        <p className="text-style-body-lg text-tea-brown max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="80">
           我們深知每件託付皆承載著獨特的期許。在此提供基礎服務方向之參考，確切細節與最終費用，將於了解您的具體需求後，於事前詳盡說明。
         </p>
         <div className="mt-8 w-16 h-px bg-tea-brown/30 mx-auto mb-10" />
@@ -26,6 +27,7 @@ function PricingPage() {
           className="w-full h-[200px] md:h-[280px] border border-ink/10 relative overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: `url('${DECORATIVE_IMAGE}')` }}
           aria-hidden="true"
+          data-aos="zoom-in"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-paper to-transparent opacity-40" />
         </div>
@@ -33,10 +35,12 @@ function PricingPage() {
 
       <section className="mb-16 md:mb-[120px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div
               key={service.id}
               className="bg-surface border border-tea-brown/20 p-8 rounded-[2px] relative overflow-hidden flex flex-col justify-between h-full group hover:border-tea-brown/40 transition-colors"
+              data-aos="fade-up"
+              data-aos-delay={(index % 3) * 80}
             >
               <div>
                 <span className="material-symbols-outlined text-tea-brown/50 mb-4 text-3xl">{service.icon}</span>
@@ -55,14 +59,19 @@ function PricingPage() {
         </div>
       </section>
 
-      <section className="mb-16 md:mb-[120px]">
+      <section className="mb-16 md:mb-[120px]" data-aos="fade-up">
         <h3 className="text-style-title-lg text-ink mb-8 flex items-center gap-3 justify-center">
           <span className="material-symbols-outlined text-tea-brown">linear_scale</span>
           服務流程
         </h3>
         <div className="max-w-2xl mx-auto relative before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[0.5px] before:bg-tea-brown/30 space-y-8">
           {PROCESS_STEPS.map((step, index) => (
-            <div className="relative pl-10 flex flex-col gap-1" key={step.title}>
+            <div
+              className="relative pl-10 flex flex-col gap-1"
+              key={step.title}
+              data-aos="fade-right"
+              data-aos-delay={index * 80}
+            >
               <div
                 className={`absolute left-0 top-1.5 w-6 h-6 bg-surface rounded-full flex items-center justify-center z-10 border ${
                   index === 0 ? 'border-vermilion' : 'border-tea-brown/40'
@@ -81,7 +90,7 @@ function PricingPage() {
         </div>
       </section>
 
-      <section className="text-center pb-8">
+      <section className="text-center pb-8" data-aos="zoom-in">
         <p className="text-style-body-md text-tea-brown mb-8">
           若需進一步了解您的專屬需求，歡迎透過電話 {contact.phone} 與我們聯繫。
         </p>

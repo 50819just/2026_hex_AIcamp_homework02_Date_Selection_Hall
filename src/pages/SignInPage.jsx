@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { navigateTo, useSearchParam } from '../hooks/useRouter'
 import { signIn } from '../hooks/useAuth'
+import MaskedHeading from '../components/ui/MaskedHeading'
 
 const TEST_EMAIL = 'demo@xuanjitang.tw'
 const TEST_PASSWORD = 'demo1234'
@@ -26,7 +27,9 @@ function SignInPage() {
   return (
     <div className="max-w-[480px] mx-auto px-6 py-16 md:py-[120px]">
       <div className="text-center mb-10">
-        <h1 className="text-style-headline-md text-ink mb-4">會員登入</h1>
+        <MaskedHeading as="h1" className="text-style-headline-md text-ink mb-4">
+          會員登入
+        </MaskedHeading>
         <p className="text-style-body-md text-tea-brown">
           登入後才能繼續支付預約訂金。這裡是作業驗收用的示意登入，不是正式身分驗證系統。
         </p>

@@ -1,5 +1,6 @@
 import { navigateTo } from '../hooks/useRouter'
 import { getServiceById } from '../data/services'
+import MaskedHeading from '../components/ui/MaskedHeading'
 
 const DECORATIVE_IMAGE =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuCbZjDrTna0SpwT7IpYJF4WAjWGmIWxRnVW-jSu4ABLArjjL5dnx-zi-c4e36YV-nD-lluVP742R2AzQrh-tLONnKBa6H7X79om9fTkwPBSW_7zznlgZspwgyBjX__mEZ3sqy-f--96YX_hXROhi4cH71ocxUOzfnIwg9TGbLvw1WxoHM3YARG9MOJOVP06NjZezebpx-f6Q4gLCktfC7A1XUi_HIUjP_MS7PghrNW5T_QyBHFPB-ltdA'
@@ -61,9 +62,15 @@ function ServiceDetailPage({ serviceId }) {
 
       {/* Hero */}
       <section className="flex flex-col items-center text-center mt-4 md:mt-12 mb-16 md:mb-[120px]">
-        <h1 className="text-style-headline-lg text-ink mb-6">{service.title}</h1>
-        <p className="text-style-body-lg text-tea-brown max-w-2xl mb-6">{detail.heroSummary}</p>
-        <div className="inline-flex items-center gap-2 bg-surface-container py-2 px-4 rounded-[999px] border border-tea-brown/20 text-tea-brown mb-10">
+        <MaskedHeading className="text-style-headline-lg text-ink mb-6">{service.title}</MaskedHeading>
+        <p className="text-style-body-lg text-tea-brown max-w-2xl mb-6" data-aos="fade-up" data-aos-delay="80">
+          {detail.heroSummary}
+        </p>
+        <div
+          className="inline-flex items-center gap-2 bg-surface-container py-2 px-4 rounded-[999px] border border-tea-brown/20 text-tea-brown mb-10"
+          data-aos="fade-up"
+          data-aos-delay="160"
+        >
           <span className="material-symbols-outlined text-[18px]">payments</span>
           <span className="text-style-body-md">{detail.priceBadge}</span>
         </div>
@@ -71,6 +78,7 @@ function ServiceDetailPage({ serviceId }) {
           className="w-full h-[200px] md:h-[320px] border border-ink/10 relative overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: `url('${DECORATIVE_IMAGE}')` }}
           aria-hidden="true"
+          data-aos="zoom-in"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-paper to-transparent opacity-40" />
         </div>
@@ -85,7 +93,12 @@ function ServiceDetailPage({ serviceId }) {
           {PROCESS_STEPS.map((step, index) => {
             const isLast = index === PROCESS_STEPS.length - 1
             return (
-              <div className="flex flex-col items-center text-center relative group" key={step.title}>
+              <div
+                className="flex flex-col items-center text-center relative group"
+                key={step.title}
+                data-aos="fade-up"
+                data-aos-delay={index * 80}
+              >
                 <div
                   className={`w-16 h-16 rounded-full border flex items-center justify-center mb-4 bg-surface transition-colors ${
                     isLast ? 'border-vermilion/30 group-hover:border-vermilion' : 'border-tea-brown/20 group-hover:border-vermilion/50'
@@ -105,7 +118,7 @@ function ServiceDetailPage({ serviceId }) {
 
       {/* Details */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-16 md:mb-[120px]">
-        <div className="bg-paper p-8 md:p-12 border border-tea-brown/20">
+        <div className="bg-paper p-8 md:p-12 border border-tea-brown/20" data-aos="fade-right">
           <h3 className="text-style-headline-md text-ink mb-8 flex items-center gap-3">
             <span className="material-symbols-outlined text-tea-brown">description</span>
             準備資料
@@ -134,7 +147,7 @@ function ServiceDetailPage({ serviceId }) {
           </div>
         </div>
 
-        <div className="bg-paper p-8 md:p-12 border border-tea-brown/20">
+        <div className="bg-paper p-8 md:p-12 border border-tea-brown/20" data-aos="fade-left">
           <h3 className="text-style-headline-md text-ink mb-8 flex items-center gap-3">
             <span className="material-symbols-outlined text-tea-brown">inventory_2</span>
             服務內容與適合情境
@@ -160,8 +173,13 @@ function ServiceDetailPage({ serviceId }) {
       <section className="mb-16 md:mb-[120px] max-w-3xl mx-auto">
         <h2 className="text-style-headline-md text-ink text-center mb-10">常見問題</h2>
         <div className="space-y-6">
-          {SERVICE_FAQ.map((item) => (
-            <div className="border-b border-tea-brown/20 pb-4" key={item.q}>
+          {SERVICE_FAQ.map((item, index) => (
+            <div
+              className="border-b border-tea-brown/20 pb-4"
+              key={item.q}
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
+            >
               <h3 className="text-style-title-lg text-ink mb-2">{item.q}</h3>
               <p className="text-style-body-md text-tea-brown">{item.a}</p>
             </div>
@@ -170,7 +188,7 @@ function ServiceDetailPage({ serviceId }) {
       </section>
 
       {/* CTA */}
-      <section className="flex justify-center mb-4">
+      <section className="flex justify-center mb-4" data-aos="zoom-in">
         <a
           className="bg-vermilion text-on-primary px-12 py-4 rounded-[2px] border border-vermilion hover:bg-transparent hover:text-vermilion transition-colors duration-300 text-style-title-lg flex items-center gap-2"
           href={`/booking?service=${service.id}`}

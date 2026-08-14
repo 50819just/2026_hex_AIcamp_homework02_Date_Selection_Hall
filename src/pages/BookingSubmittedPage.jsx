@@ -3,6 +3,7 @@ import { navigateTo, useRouter, useSearchParam } from '../hooks/useRouter'
 import { fetchBooking, demoConfirmBooking, createDepositOrder } from '../lib/api'
 import { submitEcpayCheckoutForm } from '../lib/ecpay'
 import { useAuth } from '../hooks/useAuth'
+import MaskedHeading from '../components/ui/MaskedHeading'
 
 const TEST_CARD_HINT =
   '測試用信用卡：4311-9522-2222-2222／到期年月任意未來日期／安全碼任意 3 碼／3D 驗證碼 1234'
@@ -60,7 +61,7 @@ function BookingSubmittedPage() {
 
   return (
     <div className="w-full max-w-[1440px] px-6 md:px-10 lg:px-[80px] py-16 md:py-[120px] mx-auto text-center flex flex-col items-center">
-      <div className="mb-12 flex justify-center">
+      <div className="mb-12 flex justify-center" data-aos="zoom-in">
         <div
           className="w-24 h-24 border-2 border-vermilion flex items-center justify-center relative overflow-hidden bg-surface-container-lowest"
           style={{ transform: 'rotate(-3deg)' }}
@@ -69,9 +70,11 @@ function BookingSubmittedPage() {
         </div>
       </div>
 
-      <h1 className="text-style-headline-lg text-ink mb-6 tracking-wide">預約申請已送出</h1>
+      <MaskedHeading className="text-style-headline-lg text-ink mb-6 tracking-wide" delay={0.2}>
+        預約申請已送出
+      </MaskedHeading>
 
-      <div className="max-w-xl mx-auto space-y-6">
+      <div className="max-w-xl mx-auto space-y-6" data-aos="fade-up" data-aos-delay="100">
         <p className="text-style-body-lg text-on-surface-variant">
           老師將確認您提供的資料與服務需求，並透過 LINE 或電話與您聯繫。
         </p>
@@ -98,7 +101,10 @@ function BookingSubmittedPage() {
       </div>
 
       {bookingId ? (
-        <div className="mt-16 w-full max-w-xl border-2 border-dashed border-vermilion/50 bg-surface p-6 text-left">
+        <div
+          className="mt-16 w-full max-w-xl border-2 border-dashed border-vermilion/50 bg-surface p-6 text-left"
+          data-aos="fade-up"
+        >
           <span className="inline-block bg-vermilion text-on-primary text-style-label-sm px-3 py-1 mb-4">
             僅供開發／作業驗收使用
           </span>

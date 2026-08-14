@@ -10,6 +10,7 @@ import {
 } from '../lib/booking'
 import { createBookingRequest } from '../lib/api'
 import BookingStepper from '../components/booking/BookingStepper'
+import MaskedHeading from '../components/ui/MaskedHeading'
 
 const contactPreferenceOptions = [
   { value: 'line', label: 'LINE' },
@@ -332,19 +333,21 @@ function BookingPage() {
   return (
     <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-[80px] pb-16 md:pb-[120px]">
       <header className="mb-10 md:mb-16 text-center">
-        <h1 className="text-style-headline-lg text-ink mb-4">預約申請</h1>
-        <p className="text-style-body-md text-tea-brown">
+        <MaskedHeading className="text-style-headline-lg text-ink mb-4">預約申請</MaskedHeading>
+        <p className="text-style-body-md text-tea-brown" data-aos="fade-up" data-aos-delay="120">
           預約申請送出後，不代表正式預約成立。我們將於確認後與您聯繫。
         </p>
       </header>
 
-      <div className="mb-10 md:mb-16">
+      <div className="mb-10 md:mb-16" data-aos="fade-up" data-aos-delay="80">
         <BookingStepper currentStepIndex={currentStepIndex} />
       </div>
 
       <form
         className="bg-paper p-6 md:p-12 border-[0.5px] border-ink/10 space-y-8 md:space-y-12"
         onSubmit={(event) => event.preventDefault()}
+        data-aos="fade-up"
+        data-aos-delay="160"
       >
         <div className="space-y-6">{stepRenderers[currentStepKey]()}</div>
 

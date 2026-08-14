@@ -5,6 +5,7 @@ import { submitEcpayCheckoutForm } from '../lib/ecpay'
 import { getServiceById } from '../data/services'
 import { contact } from '../data/siteContent'
 import { useAuth } from '../hooks/useAuth'
+import MaskedHeading from '../components/ui/MaskedHeading'
 
 const TEST_CARD_HINT =
   '測試用信用卡：4311-9522-2222-2222／到期年月任意未來日期／安全碼任意 3 碼／3D 驗證碼 1234'
@@ -51,12 +52,19 @@ function DepositPaymentFailedPage() {
 
   return (
     <div className="flex items-center justify-center py-16 md:py-[120px] px-6 md:px-10 lg:px-[80px]">
-      <div className="w-full max-w-[800px] mx-auto bg-surface-container-highest border border-tea-brown/20 p-8 md:p-16 relative">
+      <div
+        className="w-full max-w-[800px] mx-auto bg-surface-container-highest border border-tea-brown/20 p-8 md:p-16 relative"
+        data-aos="fade-up"
+      >
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-vermilion/50 to-transparent opacity-50" />
 
         <div className="flex flex-col items-center text-center mb-12">
-          <span className="material-symbols-outlined text-[64px] text-error mb-6">error</span>
-          <h1 className="text-style-headline-lg text-ink mb-4">付款未完成</h1>
+          <span className="material-symbols-outlined text-[64px] text-error mb-6" data-aos="zoom-in">
+            error
+          </span>
+          <MaskedHeading className="text-style-headline-lg text-ink mb-4" delay={0.15}>
+            付款未完成
+          </MaskedHeading>
           <p className="text-style-body-lg text-tea-brown max-w-[500px]">
             很抱歉，您的預約訂金付款程序未能順利完成。您的預約申請目前處於保留狀態。
           </p>
