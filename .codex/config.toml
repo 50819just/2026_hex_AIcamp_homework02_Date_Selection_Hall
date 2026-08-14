@@ -1,0 +1,12 @@
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+model = "gpt-5.4"
+reasoning_effort = "medium"
+
+[project]
+memory_file = "AGENTS.md"
+
+[paths]
+docs = "docs"
+plans = "docs/plans"
+plan_archive = "docs/plans/archive"
