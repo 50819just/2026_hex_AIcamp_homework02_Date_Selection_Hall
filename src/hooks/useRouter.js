@@ -2,27 +2,38 @@ import { useEffect, useState } from 'react'
 
 const NAVIGATE_EVENT = 'app:navigate'
 
+const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+function stripBasePath(pathname) {
+  if (BASE_PATH && pathname.startsWith(BASE_PATH)) {
+    const stripped = pathname.slice(BASE_PATH.length)
+    return stripped || '/'
+  }
+
+  return pathname
+}
+
 function getLocation() {
   return {
-    pathname: window.location.pathname,
+    pathname: stripBasePath(window.location.pathname),
     search: window.location.search,
   }
 }
 
 export function navigateTo(path) {
-  const current = `${window.location.pathname}${window.location.search}`
+  const current = `${stripBasePath(window.location.pathname)}${window.location.search}`
 
   if (path === current) {
     return
   }
 
-  window.history.pushState({}, '', path)
+  window.history.pushState({}, '', BASE_PATH + path)
   window.dispatchEvent(new Event(NAVIGATE_EVENT))
   window.scrollTo({ top: 0 })
 }
 
 export function navigateToSection(sectionId) {
-  if (window.location.pathname !== '/') {
+  if (stripBasePath(window.location.pathname) !== '/') {
     navigateTo('/')
     window.setTimeout(() => {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })

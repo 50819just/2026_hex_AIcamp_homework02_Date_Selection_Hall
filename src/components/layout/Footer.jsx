@@ -17,7 +17,7 @@ function Footer() {
           <img
             alt="玄機堂擇日舘 Logo"
             className="h-8 w-auto opacity-80"
-            src="/branding/logo-symbol-on-light.png"
+            src={`${import.meta.env.BASE_URL}branding/logo-symbol-on-light.png`}
           />
           <span className="text-style-title-lg text-ink tracking-wide">玄機堂擇日舘</span>
         </div>
