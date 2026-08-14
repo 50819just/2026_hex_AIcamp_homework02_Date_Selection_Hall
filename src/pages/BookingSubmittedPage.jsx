@@ -97,7 +97,7 @@ function BookingSubmittedPage() {
         </a>
       </div>
 
-      {import.meta.env.DEV && bookingId ? (
+      {bookingId ? (
         <div className="mt-16 w-full max-w-xl border-2 border-dashed border-vermilion/50 bg-surface p-6 text-left">
           <span className="inline-block bg-vermilion text-on-primary text-style-label-sm px-3 py-1 mb-4">
             僅供開發／作業驗收使用
