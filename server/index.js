@@ -13,7 +13,7 @@ import { buildReplyText, replyToLine, verifyLineSignature } from './lineBot.js'
 function sendJson(response, statusCode, data) {
   response.writeHead(statusCode, {
     'Content-Type': 'application/json; charset=utf-8',
-    'Access-Control-Allow-Origin': appConfig.frontendBaseUrl,
+    'Access-Control-Allow-Origin': appConfig.frontendOrigin,
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   })
@@ -23,7 +23,7 @@ function sendJson(response, statusCode, data) {
 function sendText(response, statusCode, text) {
   response.writeHead(statusCode, {
     'Content-Type': 'text/plain; charset=utf-8',
-    'Access-Control-Allow-Origin': appConfig.frontendBaseUrl,
+    'Access-Control-Allow-Origin': appConfig.frontendOrigin,
   })
   response.end(text)
 }

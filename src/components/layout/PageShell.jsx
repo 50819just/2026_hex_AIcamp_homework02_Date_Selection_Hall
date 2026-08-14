@@ -1,15 +1,7 @@
 import Header from './Header'
 import Footer from './Footer'
 
-function PageShell({ children, bare = false }) {
-  if (bare) {
-    return (
-      <div id="top" className="min-h-screen bg-background text-ink">
-        {children}
-      </div>
-    )
-  }
-
+function PageShell({ children }) {
   return (
     <div id="top" className="min-h-screen bg-background text-ink">
       <Header />

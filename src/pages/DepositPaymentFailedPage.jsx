@@ -50,7 +50,7 @@ function DepositPaymentFailedPage() {
   const serviceName = record?.serviceType ? getServiceById(record.serviceType)?.title : null
 
   return (
-    <main className="min-h-screen flex items-center justify-center py-16 md:py-[120px] px-6 md:px-[80px]">
+    <div className="flex items-center justify-center py-16 md:py-[120px] px-6 md:px-10 lg:px-[80px]">
       <div className="w-full max-w-[800px] mx-auto bg-surface-container-highest border border-tea-brown/20 p-8 md:p-16 relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-vermilion/50 to-transparent opacity-50" />
 
@@ -121,7 +121,7 @@ function DepositPaymentFailedPage() {
           <p className="text-style-label-sm text-tea-brown/60">若您多次嘗試仍無法完成付款，請與我們聯繫。</p>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

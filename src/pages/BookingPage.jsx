@@ -330,7 +330,7 @@ function BookingPage() {
   }
 
   return (
-    <div className="max-w-[1440px] mx-auto px-6 md:px-[80px] pb-16 md:pb-[120px]">
+    <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-[80px] pb-16 md:pb-[120px]">
       <header className="mb-10 md:mb-16 text-center">
         <h1 className="text-style-headline-lg text-ink mb-4">預約申請</h1>
         <p className="text-style-body-md text-tea-brown">

@@ -21,7 +21,7 @@ function ServiceDetailPage({ serviceId }) {
 
   if (!service) {
     return (
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[80px] py-24 text-center">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-[80px] py-24 text-center">
         <h1 className="text-style-headline-lg text-ink mb-6">找不到這項服務</h1>
         <p className="text-style-body-md text-tea-brown mb-8">這個服務項目可能已調整，請回到首頁重新選擇。</p>
         <a
@@ -41,7 +41,7 @@ function ServiceDetailPage({ serviceId }) {
   const { detail } = service
 
   return (
-    <div className="max-w-[1440px] mx-auto px-6 md:px-[80px] pb-16 md:pb-[120px]">
+    <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-[80px] pb-16 md:pb-[120px]">
       <div className="mb-8 text-style-body-md text-tea-brown">
         <a
           className="hover:text-vermilion"

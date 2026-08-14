@@ -59,7 +59,7 @@ function BookingSubmittedPage() {
   }
 
   return (
-    <main className="w-full max-w-[1440px] px-6 md:px-[80px] py-16 md:py-[120px] mx-auto text-center flex flex-col items-center">
+    <div className="w-full max-w-[1440px] px-6 md:px-10 lg:px-[80px] py-16 md:py-[120px] mx-auto text-center flex flex-col items-center">
       <div className="mb-12 flex justify-center">
         <div
           className="w-24 h-24 border-2 border-vermilion flex items-center justify-center relative overflow-hidden bg-surface-container-lowest"
@@ -156,7 +156,7 @@ function BookingSubmittedPage() {
           {demoError ? <p className="text-style-body-md text-error mt-4">{demoError}</p> : null}
         </div>
       ) : null}
-    </main>
+    </div>
   )
 }
 

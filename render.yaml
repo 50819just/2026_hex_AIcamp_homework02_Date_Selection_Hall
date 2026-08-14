@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: xuanjitang-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/index.js
+    envVars:
+      - key: APP_BASE_URL
+        value: https://xuanjitang-api.onrender.com
+      - key: FRONTEND_BASE_URL
+        value: https://50819just.github.io/2026_hex_AIcamp_homework02_Date_Selection_Hall
+      - key: ECPAY_ENV
+        value: stage
+      # 以下留空即可：程式碼已內建綠界官方公開測試帳密作為 fallback。
+      # 之後有正式金鑰時才需要在 Render 後台手動填入，不要寫進這個檔案。
+      - key: ECPAY_MERCHANT_ID
+        sync: false
+      - key: ECPAY_HASH_KEY
+        sync: false
+      - key: ECPAY_HASH_IV
+        sync: false
+      # LINE OA 申請好 Channel 後，在 Render 後台手動填入，不要寫進這個檔案。
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        sync: false

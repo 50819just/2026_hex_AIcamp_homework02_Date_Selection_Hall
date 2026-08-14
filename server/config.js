@@ -37,12 +37,25 @@ function getConfigValue(key, fallbackValue) {
   return process.env[key] || fileEnv[key] || fallbackValue
 }
 
+const frontendBaseUrl = getConfigValue('FRONTEND_BASE_URL', 'http://localhost:5173')
+
+function resolveOrigin(url) {
+  try {
+    return new URL(url).origin
+  } catch {
+    return url
+  }
+}
+
 // 以下 MerchantID / HashKey / HashIV 預設值為綠界官方公開的測試環境帳密，
 // 僅供本機開發 stage 測試使用，不是正式金鑰；正式環境必須以環境變數覆蓋。
 export const appConfig = {
   port: Number(getConfigValue('PORT', 3000)),
   appBaseUrl: getConfigValue('APP_BASE_URL', 'http://localhost:3000'),
-  frontendBaseUrl: getConfigValue('FRONTEND_BASE_URL', 'http://localhost:5173'),
+  // frontendBaseUrl 可能含部署子路徑（例如 GitHub Pages 專案頁），用於組合使用者會看到的連結；
+  // frontendOrigin 只有 scheme+host+port，CORS 標頭一定要用這個，含路徑會讓瀏覽器判定不合法而擋掉請求。
+  frontendBaseUrl,
+  frontendOrigin: resolveOrigin(frontendBaseUrl),
   ecpayEnv: getConfigValue('ECPAY_ENV', 'stage'),
   merchantId: getConfigValue('ECPAY_MERCHANT_ID', '3002607'),
   hashKey: getConfigValue('ECPAY_HASH_KEY', 'pwFHCqoQZGmho4w6'),

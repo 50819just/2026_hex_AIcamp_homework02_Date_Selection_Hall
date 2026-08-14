@@ -11,7 +11,7 @@ const footerLinks = [
 
 function Footer() {
   return (
-    <footer className="w-full px-6 md:px-[80px] py-16 md:py-[120px] flex flex-col md:flex-row justify-between gap-6 bg-surface-container-highest border-t border-ink/10">
+    <footer className="w-full px-6 md:px-10 lg:px-[80px] py-16 md:py-[120px] flex flex-col md:flex-row justify-between gap-6 bg-surface-container-highest border-t border-ink/10">
       <div className="flex flex-col gap-4 max-w-sm">
         <div className="flex items-center gap-2">
           <img

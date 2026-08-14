@@ -7,7 +7,7 @@ const HERO_IMAGE =
 
 function HomePage() {
   return (
-    <div className="max-w-[1440px] mx-auto px-6 md:px-[80px]">
+    <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-[80px]">
       {/* Hero */}
       <section className="py-16 md:py-[120px] flex flex-col items-center text-center">
         <span className="text-style-label-sm text-vermilion tracking-widest mb-4">{brand.eyebrow}</span>

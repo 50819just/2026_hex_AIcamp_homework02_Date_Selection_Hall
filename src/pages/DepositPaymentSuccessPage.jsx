@@ -34,7 +34,7 @@ function DepositPaymentSuccessPage() {
   const serviceName = record?.serviceType ? getServiceById(record.serviceType)?.title : null
 
   return (
-    <main className="flex-grow flex items-center justify-center py-16 md:py-[120px] px-6 md:px-[80px] w-full max-w-[1440px] mx-auto">
+    <div className="flex items-center justify-center py-16 md:py-[120px] px-6 md:px-10 lg:px-[80px] w-full max-w-[1440px] mx-auto">
       <article className="w-full max-w-4xl bg-surface-container-lowest border border-tea-brown/20 relative">
         <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-ink/30" />
         <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-ink/30" />
@@ -119,7 +119,7 @@ function DepositPaymentSuccessPage() {
           </div>
         </div>
       </article>
-    </main>
+    </div>
   )
 }
 

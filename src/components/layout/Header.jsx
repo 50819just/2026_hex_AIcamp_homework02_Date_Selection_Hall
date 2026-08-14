@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-paper/95 backdrop-blur-md border-b border-ink/10">
-      <div className="flex justify-between items-center px-6 md:px-[80px] py-4 max-w-[1440px] mx-auto">
+      <div className="flex justify-between items-center px-6 md:px-10 lg:px-[80px] py-4 max-w-[1440px] mx-auto">
         <a
           href="/"
           aria-label="回到首頁"
@@ -35,7 +35,7 @@ function Header() {
           <span className="text-style-title-lg text-ink tracking-wide">玄機堂擇日舘</span>
         </a>
 
-        <nav className="hidden md:flex gap-8" aria-label="主要導覽">
+        <nav className="hidden lg:flex gap-6 xl:gap-8" aria-label="主要導覽">
           {navLinks.map((link) => (
             <a
               key={link.label}

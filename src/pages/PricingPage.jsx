@@ -12,7 +12,7 @@ const PROCESS_STEPS = [
 
 function PricingPage() {
   return (
-    <div className="max-w-[1200px] mx-auto px-6 md:px-[80px] pb-16 md:pb-[120px]">
+    <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-[80px] pb-16 md:pb-[120px]">
       <section className="mb-16 md:mb-[120px] pt-8 md:pt-16 text-center">
         <h1 className="text-style-headline-lg text-ink mb-6">價格說明</h1>
         <p className="text-style-body-lg text-tea-brown max-w-2xl mx-auto">
