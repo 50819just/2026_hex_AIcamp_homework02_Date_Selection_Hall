@@ -1,6 +1,9 @@
 import { navigateTo } from '../hooks/useRouter'
 import { getServiceById } from '../data/services'
 
+const DECORATIVE_IMAGE =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuCbZjDrTna0SpwT7IpYJF4WAjWGmIWxRnVW-jSu4ABLArjjL5dnx-zi-c4e36YV-nD-lluVP742R2AzQrh-tLONnKBa6H7X79om9fTkwPBSW_7zznlgZspwgyBjX__mEZ3sqy-f--96YX_hXROhi4cH71ocxUOzfnIwg9TGbLvw1WxoHM3YARG9MOJOVP06NjZezebpx-f6Q4gLCktfC7A1XUi_HIUjP_MS7PghrNW5T_QyBHFPB-ltdA'
+
 const PROCESS_STEPS = [
   { label: '一', title: '提出需求', description: '填寫初步需求' },
   { label: '二', title: '補充資料', description: '提供所需相關資料' },
@@ -60,9 +63,16 @@ function ServiceDetailPage({ serviceId }) {
       <section className="flex flex-col items-center text-center mt-4 md:mt-12 mb-16 md:mb-[120px]">
         <h1 className="text-style-headline-lg text-ink mb-6">{service.title}</h1>
         <p className="text-style-body-lg text-tea-brown max-w-2xl mb-6">{detail.heroSummary}</p>
-        <div className="inline-flex items-center gap-2 bg-surface-container py-2 px-4 rounded-[999px] border border-tea-brown/20 text-tea-brown">
+        <div className="inline-flex items-center gap-2 bg-surface-container py-2 px-4 rounded-[999px] border border-tea-brown/20 text-tea-brown mb-10">
           <span className="material-symbols-outlined text-[18px]">payments</span>
           <span className="text-style-body-md">{detail.priceBadge}</span>
+        </div>
+        <div
+          className="w-full h-[200px] md:h-[320px] border border-ink/10 relative overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: `url('${DECORATIVE_IMAGE}')` }}
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-paper to-transparent opacity-40" />
         </div>
       </section>
 

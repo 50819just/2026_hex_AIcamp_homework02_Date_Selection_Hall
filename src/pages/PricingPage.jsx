@@ -2,6 +2,9 @@ import { navigateTo } from '../hooks/useRouter'
 import { services } from '../data/services'
 import { contact } from '../data/siteContent'
 
+const DECORATIVE_IMAGE =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuCbZjDrTna0SpwT7IpYJF4WAjWGmIWxRnVW-jSu4ABLArjjL5dnx-zi-c4e36YV-nD-lluVP742R2AzQrh-tLONnKBa6H7X79om9fTkwPBSW_7zznlgZspwgyBjX__mEZ3sqy-f--96YX_hXROhi4cH71ocxUOzfnIwg9TGbLvw1WxoHM3YARG9MOJOVP06NjZezebpx-f6Q4gLCktfC7A1XUi_HIUjP_MS7PghrNW5T_QyBHFPB-ltdA'
+
 const PROCESS_STEPS = [
   { title: '提出需求', description: '填寫初步需求表單，簡述所需服務類別。' },
   { title: '老師確認內容', description: '由老師親自審閱需求內容，評估所需相關資訊與複雜度。' },
@@ -18,7 +21,14 @@ function PricingPage() {
         <p className="text-style-body-lg text-tea-brown max-w-2xl mx-auto">
           我們深知每件託付皆承載著獨特的期許。在此提供基礎服務方向之參考，確切細節與最終費用，將於了解您的具體需求後，於事前詳盡說明。
         </p>
-        <div className="mt-8 w-16 h-px bg-tea-brown/30 mx-auto" />
+        <div className="mt-8 w-16 h-px bg-tea-brown/30 mx-auto mb-10" />
+        <div
+          className="w-full h-[200px] md:h-[280px] border border-ink/10 relative overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: `url('${DECORATIVE_IMAGE}')` }}
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-paper to-transparent opacity-40" />
+        </div>
       </section>
 
       <section className="mb-16 md:mb-[120px]">
